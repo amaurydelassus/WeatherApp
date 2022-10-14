@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AccueilComponent} from "./accueil/accueil.component";
 import {HttpClientModule} from "@angular/common/http";
+import {FavoritesComponent} from "./favorites/favorites.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccueilComponent
+    AccueilComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
