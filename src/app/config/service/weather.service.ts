@@ -11,6 +11,8 @@ export class WeatherService {
 
   getWeatherCity(test:string): Observable<Object>{
     console.log(test)
-    return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=Lille,fr&APPID=1be2d16ca1e8f4250b426a94cbb888ca')
+    let city : String = 'Lille'
+    let key : String = '8cd0d6ac2fcfd01c9ab3c426b7c7d5c9'
+    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${city},fr&APPID=${key}`)
   }
 }
