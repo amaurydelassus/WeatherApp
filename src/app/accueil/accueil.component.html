@@ -1,3 +1,12 @@
 <div>
     <h1>{{title}}</h1>
+    <input #cityName
+           (keyup.enter)="addCity(cityName.value)"
+           (blur)="addCity(cityName.value); cityName.value='' ">
+
+    <button type="button" (click)="addCity(cityName.value)">Rechercher</button>
+
+    <div *ngFor="let item of cityList">
+        <p>{{item.name}}</p>
+    </div>
 </div>
