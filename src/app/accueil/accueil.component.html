@@ -5,6 +5,12 @@
            (blur)="addCity(cityName.value); cityName.value='' ">
 
     <button type="button" (click)="addCity(cityName.value)">Rechercher</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button type="button" (click)="addGeoloc()">Geoloc</button>
 
     <div *ngFor="let item of cityList">
         <p>{{item.name}}</p>
