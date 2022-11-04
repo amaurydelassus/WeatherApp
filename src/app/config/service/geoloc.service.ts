@@ -13,13 +13,9 @@ export class GeolocService {
     constructor(private http: HttpClient) {
     };
 
-    getWeatherByGeoloc(): any {
+    getWeatherByGeoloc(latitude : any ,longitude : any): any {
         try {
-            return navigator.geolocation.getCurrentPosition(
-                (position) => this.http.get(`${this.bffApi}/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&APPID=${this.keyApi}`).subscribe(
-                    response => response
-                )
-            );
+            return this.http.get(`${this.bffApi}/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${this.keyApi}`)
         } catch (e) {
             console.log('Error ', e)
             return e
