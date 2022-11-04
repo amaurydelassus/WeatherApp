@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FavoritesComponent} from "./favorites/favorites.component";
 import {WeatherService} from "./config/service/weather.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {GeolocService} from "./config/service/geoloc.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, GeolocService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
