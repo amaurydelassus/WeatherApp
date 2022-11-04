@@ -14,6 +14,7 @@ export class AccueilComponent implements OnInit {
 
   title = 'accueil page';
   cities: cityModel[] = [];
+  citiesName: cityModel[] = [];
   htmlLocErr: string | undefined;
   ngOnInit() {
   }
@@ -21,9 +22,8 @@ export class AccueilComponent implements OnInit {
   addCity(cityName: string): void {
     if (cityName) {
       const weatherInfo = this.weatherService.getWeatherByCity(cityName)
-
       weatherInfo.subscribe((value: Readonly<cityModel>) => {
-        return this.cities.push(value);
+        this.addInCity(value)
       });
     }
   }
@@ -31,10 +31,18 @@ export class AccueilComponent implements OnInit {
   addGeoloc(): void {
     navigator.geolocation.getCurrentPosition(
         (position) => this.geolocService.getWeatherByGeoloc(position.coords.latitude, position.coords.longitude).subscribe((value: any) => {
-          // @ts-ignore
-          // cities should be a better naming, no need to specifiy the type of your property because your doing typescript typing with Array or []
-          return this.cities.push(value);
-        }), (e) => console.log(e)
+            this.addInCity(value)
+        }),
+        (e) => alert(e.message)
     );
   }
+
+    addInCity(cityObject : any): void {
+        if (this.citiesName.includes(cityObject.name)) {
+            alert(cityObject.name + "est deja dans la liste")
+        } else {
+            this.cities.push(cityObject);
+            this.citiesName.push(cityObject.name);
+        }
+    }
 }
