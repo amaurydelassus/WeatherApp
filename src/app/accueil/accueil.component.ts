@@ -32,6 +32,12 @@ export class AccueilComponent implements OnInit {
     }
 
     addGeoloc(): void {
-        return this.geolocService.getWeatherByGeoloc()
+        navigator.geolocation.getCurrentPosition(
+            (position) => this.geolocService.getWeatherByGeoloc(position.coords.latitude, position.coords.longitude).subscribe((value: any) => {
+                // @ts-ignore
+                // cities should be a better naming, no need to specifiy the type of your property because your doing typescript typing with Array or []
+                return this.cityList.push(value);
+            }), (e) => console.log(e)
+        );
     }
 }
