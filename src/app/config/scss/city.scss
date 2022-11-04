@@ -1,0 +1,86 @@
+.city {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 21rem;
+  height: 25rem;
+  border-radius: 0.75rem;
+  box-shadow: 5px 5px 20px rgba(0 0 0 /0.15);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 300ms ease;
+  margin: 24px auto;
+}
+
+.city:hover {
+  transform: scale(1.03);
+}
+
+.city__bg {
+  height: 40%;
+  background-image: url("https://kellychi22.github.io/frontend-mentor-solutions/08-profile-card-component//images/bg-pattern-card.svg");
+}
+
+.city__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 60%;
+  padding-top: 3.5em;
+  background-color: white;
+}
+
+.city__location {
+  color: var(--Dark-gray);
+  margin-bottom: 2em;
+}
+
+.city__stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5em;
+  border-top: 1px solid rgba(0 0 0/ 0.2);
+}
+
+.stat__number {
+  color: var(--Very-dark-blue);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.stat__name {
+  margin-top: 0.25em;
+  color: var(--Dark-grayish-blue);
+  font-size: 0.7rem;
+  letter-spacing: 0.25ch;
+}
+
+.city__img__container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 28%;
+  left: 35%;
+}
+
+.city__img {
+  width: 6rem;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.attribution {
+  position: absolute;
+  top: 0;
+  opacity: 0.9;
+}
+
+.attribution a {
+  color: white;
+  text-decoration: underline;
+}
+
+.attribution a:hover {
+  color: rgba(255 255 255/0.5);
+}

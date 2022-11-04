@@ -9,10 +9,11 @@
         <button type="button" class="ripple" (click)="addCity(cityName.value)">Rechercher</button>
     </div>
     <button type="button" class="ripple" (click)="addGeoloc()">Localisation</button>
-    <div [innerHTML]="htmlLocErr"></div>
     <div class="invers__city">
         <article class="city" *ngFor="let item of cities">
-            <div class="city__bg"></div>
+            <div class="city__bg">
+                <button (click)="addFavorites(item)">Test favorites</button>
+            </div>
             <div class="city__info">
                 <h1 class="city__name">{{item.name}}</h1>
                 <p class="city__location">Lon : {{item.coord.lon}}, Lat {{item.coord.lat}}</p>
