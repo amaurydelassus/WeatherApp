@@ -1,0 +1,33 @@
+<div class="div__main">
+    <h1>{{title}}</h1>
+    <div *ngFor="let item of favoritesCities">
+    <article class="city" *ngIf="item.favorite == true">
+            <div class="city__bg">
+                <div (click)="deleteFavorite(item)" class="favorites">
+                    <img src="./assets/img/star.svg" alt="Star Logo" class="star_favorites">
+                </div>
+            </div>
+            <div class="city__info">
+                <h1 class="city__name">{{item.name}}</h1>
+                <p class="city__location">Lon : {{item.coord.lon}}, Lat {{item.coord.lat}}</p>
+                <div class="city__stats">
+                    <div class="stat">
+                        <p class="stat__number">{{item.weather[0].main}}</p>
+                        <p class="stat__name">Meteo</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat__number">{{item.main.temp}}</p>
+                        <p class="stat__name">Température</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat__number">{{item.wind.speed}}</p>
+                        <p class="stat__name">Vitesse vent</p>
+                    </div>
+                </div>
+            </div>
+            <div class="city__img__container">
+                <img class="city__img" src="./assets/img/clouds.png" alt="photo-of-victor-crest">
+            </div>
+    </article>
+    </div>
+</div>
