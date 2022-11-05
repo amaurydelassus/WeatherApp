@@ -12,7 +12,9 @@
     <div class="invers__city">
         <article class="city" *ngFor="let item of cities">
             <div class="city__bg">
-                <button (click)="addFavorites(item)">Test favorites</button>
+                <div (click)="addDeleteFavorites(item)" class="favorites">
+                    <img [class.star_favorites]="item.favorite" src="./assets/img/star.svg" alt="Star Logo">
+                </div>
             </div>
             <div class="city__info">
                 <h1 class="city__name">{{item.name}}</h1>

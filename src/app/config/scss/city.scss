@@ -1,3 +1,14 @@
+.favorites{
+  height: 50px;
+  width: 50px;
+  float: right;
+  margin: 10px;
+}
+
+.star_favorites{
+  filter: invert() sepia(100%) saturate(7466%) hue-rotate(0deg) brightness(94%) contrast(115%);
+}
+
 .city {
   display: flex;
   flex-direction: column;

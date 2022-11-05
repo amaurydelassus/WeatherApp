@@ -11,13 +11,11 @@ export class FavoritesComponent implements OnInit{
     favoritesCities: cityModel[] = [];
 
     ngOnInit() {
-        this.favoritesCities = JSON.parse(<string>localStorage.getItem('favorite'))
+        this.favoritesCities = JSON.parse(<string>localStorage.getItem('cities'))
     }
 
     deleteFavorite(city: cityModel):void {
-        this.favoritesCities.forEach((value, index) => {
-            if(value==city) this.favoritesCities.splice(index,1)
-        })
-        localStorage.setItem('favorite', JSON.stringify(this.favoritesCities))
+        city.favorite = !city.favorite
+        localStorage.setItem('cities', JSON.stringify(this.favoritesCities))
     }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "../config/service/weather.service";
 import {cityModel} from "../config/models/city";
 import {GeolocService} from "../config/service/geoloc.service";
+import {map} from "rxjs/operators";
 
 @Component({
     selector: 'app-root',
@@ -15,7 +16,6 @@ export class AccueilComponent implements OnInit {
     title = 'Weather Story !';
     cities: cityModel[] = [];
     citiesName: cityModel[] = [];
-    favoritesCities: cityModel[] = []
 
     ngOnInit() {
     }
@@ -47,15 +47,8 @@ export class AccueilComponent implements OnInit {
         }
     }
 
-    addFavorites(city: any): void {
-        let check = true
-        this.favoritesCities.forEach((value, index) => {
-            if(value.name==city.name) {
-                this.favoritesCities.splice(index,1)
-                check = false;
-            }
-        })
-        if(check) this.favoritesCities.push(city)
-        localStorage.setItem('favorite', JSON.stringify(this.favoritesCities))
+    addDeleteFavorites(city: cityModel): void {
+        city.favorite = !city.favorite;
+        localStorage.setItem('cities', JSON.stringify(this.cities))
     }
 }
