@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "../config/service/weather.service";
 import {cityModel} from "../config/models/city";
 import {GeolocService} from "../config/service/geoloc.service";
-import {map} from "rxjs/operators";
 
 @Component({
     selector: 'app-root',
